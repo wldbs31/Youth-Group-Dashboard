@@ -1,0 +1,277 @@
+/* ===== Theme ===== */
+:root {
+  --brand-700: #2a4d88; /* deep blue */
+  --brand-600: #7c94b8; /* link/hover */
+  --brand-500: #90add6; /* nav bg */
+  --brand-400: #b1bbc8; /* accents */
+  --brand-200: #d9d9d8; /* soft bg */
+  --cream-100: #fff9f0; /* light cream bg */
+  --ink-900: #0f172a; /* headings */
+  --ink-800: #1e293b; /* subheadings */
+  --ink-600: #475569; /* body text */
+  --card: #ffffff;
+  --border: #e6ecff;
+  --shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+  --radius: 14px;
+
+  --avatar-size: 110px; /* tweak profile image size */
+}
+
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Imbue";
+  src: url("fonts/Imbue-VariableFont_opsz\,wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Serif Display Regular";
+  src: url("fonts/NotoSerifDisplay-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Serif Display Italics";
+  src: url("fonts/NotoSerifDisplay-Italic-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Montserrat Regular", system-ui, -apple-system, Segoe UI, Roboto,
+    Arial, sans-serif;
+  color: var(--brand-500);
+  background: radial-gradient(
+      1200px 600px at 50% -200px,
+      var(--brand-500),
+      transparent
+    ),
+    #fff;
+}
+
+/* ===== Header / Title ===== */
+.title {
+  margin: 30px 0 10px;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--ink-800);
+  letter-spacing: -1px;
+  font-family: "Noto Serif Display Italics", serif;
+  font-size: 50px;
+}
+.subtitle {
+  margin: 0 0 18px;
+  text-align: center;
+  color: var(--ink-900);
+  font-weight: 300;
+  letter-spacing: -1px;
+  font-size: 20px;
+}
+
+/* ===== Nav ===== */
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 16px;
+  opacity: 0.9;
+  background: radial-gradient(
+      1200px 600px at 50% -200px,
+      var(--brand-600),
+      transparent
+    ),
+    #fff;
+  border-bottom: 1px solid #8facff44;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(140%) blur(4px);
+  border-radius: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.nav-bar a {
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+  opacity: 0.95;
+}
+.nav-bar a:hover {
+  background: #ffffff22;
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* ===== Layout ===== */
+.section-container {
+  display: flex;
+  gap: 16px;
+  width: min(1100px, 92vw);
+  margin: 24px auto 96px; /* leave room for sticky footer */
+  align-items: flex-start;
+}
+.section-container section {
+  flex: 1;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.section-container title {
+  font-weight: 300;
+  font-size: 17px;
+  margin-top: 2px;
+}
+
+.section-container h2 {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+/* ===== Scoreboard (profiles) ===== */
+.member-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  padding: 0;
+  margin: 18px 0 0;
+  align-items: start;
+}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.profile-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(36, 72, 179, 0.12);
+}
+.profile {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 18px rgba(36, 72, 179, 0.18);
+}
+.member-list a {
+  color: var(--brand-600);
+  text-decoration: none;
+  font-weight: 700;
+}
+.member-list a:hover {
+  text-decoration: underline;
+}
+.profile-container p {
+  margin: 0.25rem 0 0;
+  color: var(--ink-600);
+  font-weight: 600;
+}
+
+/* ===== Memory Verse card ===== */
+.memoryVerse-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.memoryVerse {
+  width: min(520px, 100%);
+  margin: 0 0 0 auto;
+  background: linear-gradient(180deg, #f5f8ff 0%, #ffffff 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  text-align: left;
+}
+.memoryVerse h3 {
+  margin: 0 0 6px;
+  color: var(--brand-700);
+}
+.memoryVerse p {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-600);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 16px;
+  opacity: 0.5;
+  background: var(--brand-400);
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #9bb2ff55;
+}
+
+/* ===== Utilities / Responsive ===== */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink-900);
+}
+section > h1 {
+  color: var(--brand-700);
+  margin: 0 0 0.25rem;
+}
+section > h2 {
+  color: var(--ink-600);
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --avatar-size: 96px;
+  }
+  .section-container {
+    flex-direction: column;
+  }
+  .memoryVerse {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --avatar-size: 84px;
+  }
+  .nav-bar {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  .nav-bar a {
+    padding: 6px 8px;
+  }
+}
